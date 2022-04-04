@@ -1,2 +1,2 @@
-# understanding_static_jinja
-Looking into using jinja in static html
+# vanilla_documentation
+Using simple python and vanilla javascript to create a regularly updated documentation as a static website.
