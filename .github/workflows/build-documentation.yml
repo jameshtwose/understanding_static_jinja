@@ -28,8 +28,8 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run python build index files
       run: |
-        python -m build_qa_output.py
-        python -m build_index.py
+        python -m build_qa_output
+        python -m build_index
 
     - run: sudo apt install tidy
     - run: tidy index.html
