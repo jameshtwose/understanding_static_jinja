@@ -2,7 +2,6 @@
 from glob import glob
 from contextlib import redirect_stdout
 
-from matplotlib.pyplot import title
 from index_html_helpers import start_doc, end_doc
 
 #%%
