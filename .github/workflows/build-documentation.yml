@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest]
         python-version: ["3.9"]
 
     steps:
@@ -30,8 +30,20 @@ jobs:
       run: |
         python -m build_qa_output
         python -m build_index
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: html-docs
+        path: .
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .
 
-    - run: sudo apt install tidy
-    - run: tidy index.html
-    - name: Print generated page
-      run: cat index.html
+    # - run: sudo apt install tidy
+    # - run: tidy index.html
+    # - name: Print generated page
+    #   run: cat index.html
