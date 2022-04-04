@@ -2,9 +2,10 @@ body {
     margin: 2%;
     padding: 2%;
     font-family: 'Raleway', sans-serif;
+    --grey: #282d32;
     --purple: #8f0fd4;
     --yellow: #fcdd14;
-    --offwhite: #ffee8227;
+    --offwhite: #fff8ca27;
     color: var(--purple);
 }
 
@@ -27,5 +28,6 @@ li {
 }
 
 table {
+    color: var(--grey);
     background-color: var(--offwhite);
 }
