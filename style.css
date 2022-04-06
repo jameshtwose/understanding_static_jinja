@@ -1,6 +1,6 @@
 body {
-    margin: 2%;
-    padding: 2%;
+    /* margin: 2%;
+    padding: 2%; */
     font-family: 'Raleway', sans-serif;
     --grey: #282d32;
     --purple: #8f0fd4;
@@ -14,10 +14,14 @@ p {
 }
 
 h1 {
+    padding-top: 10%;
+    padding-left: 10%;
     color: var(--purple);
 }
 
 ul li a {
+    padding-top: 2%;
+    padding-left: 8%;
     color: var(--purple);
 }
 
@@ -30,4 +34,43 @@ li {
 table {
     color: var(--grey);
     background-color: var(--offwhite);
+}   
+
+.nav-bar {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.navbar {
+    background-color: var(--purple);
+    /* color: white; */
+}
+
+.navbar {
+    text-align: center;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.fa.fa-bars {
+    font-size: 35px;
+    color: white;
+}
+
+.navbar-toggler {
+    outline: none !important;
+}
+
+.navbar-nav {
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.nav-link {
+    color: white !important;
 }
