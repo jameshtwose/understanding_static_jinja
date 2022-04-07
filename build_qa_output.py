@@ -68,13 +68,23 @@ for file_name in file_name_data_range_dict:
             print(f"<h3>Covid Death Data - date range: {user_begin} - {user_end}</h3>")
             covid_df = covid_death_date_range_df(data=df, date_begin=user_begin, date_end=user_end)
             print(plot_line_plot(data=covid_df).to_html())
-            print(covid_df.style.background_gradient(cmap, 
+            print(covid_df.head(5).style.background_gradient(cmap, 
                             subset=['new_cases'], 
                             axis=1, 
                             vmin=0, 
                             vmax=100
                             )
                             .to_html())
+            print(covid_df
+            .groupby("location")
+            .describe()
+            # .style.background_gradient(cmap, 
+            #     subset=['mean'], 
+            #     axis=1, 
+            #     vmin=0, 
+            #     vmax=100
+            #     )
+                .to_html())
 
             end_doc()
 
