@@ -6,7 +6,7 @@ from contextlib import redirect_stdout
 import plotly.graph_objects as go
 import plotly.express as px
 
-from index_html_helpers import start_doc, end_doc
+from index_html_helpers import navbar_end, navbar_start, start_doc, end_doc
 
 #%%
 df = (pd.read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
@@ -64,7 +64,8 @@ for file_name in file_name_data_range_dict:
     user_end = file_name_data_range_dict[file_name][1]
     with open(file_name, "w") as f:
         with redirect_stdout(f):
-            start_doc()
+            start_doc(style_link="../style.css")
+            print("<section id='mainbody'>")
             print(f"<h3>Covid Death Data - date range: {user_begin} - {user_end}</h3>")
             covid_df = covid_death_date_range_df(data=df, date_begin=user_begin, date_end=user_end)
             print(plot_line_plot(data=covid_df).to_html())
@@ -76,6 +77,7 @@ for file_name in file_name_data_range_dict:
                             )
                             .to_html())
             print(covid_df
+            [["location", "total_cases", "total_deaths"]]
             .groupby("location")
             .describe()
             # .style.background_gradient(cmap, 
@@ -85,6 +87,9 @@ for file_name in file_name_data_range_dict:
             #     vmax=100
             #     )
                 .to_html())
+            print("</section>")
+            navbar_start(home_link="../index.html")
+            navbar_end()
 
             end_doc()
 
